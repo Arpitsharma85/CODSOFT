@@ -11,7 +11,6 @@
       background-image: url(honeyconcert.jpg.jpg);
       background-repeat:no-repeat ;
       background-size: cover;
-      object-fit: cover;
       position: relative;
       background-position: center;
       height: 100vh;
@@ -27,32 +26,28 @@
 <link rel = "stylesheet" href="style.css">
 </head>
 <body>
-  <div class="menu-bar">  
-    <div class="hamburger" onclick="toggleMenu()">☰</div>   
-    <ul id="menu">
-        <li>Music</li>
-        <li>Venue</li>
-        <li>Tour</li>
-        <li>Photos</li>
-        <li>About Us</li>
-        <li>Newsletter</li>
-    </ul>
-</div>
-  <div>
-  <ul>
-    <h1 class = "paragraph">Welcome to the</h1>
-    <h2 class = "paragraph2">MILLIONAIRE</h2>
-    <h3 class = "paragraph3">Tour</h3>
-  </div>
+<div class="menu-bar">     
+<ul>
+<li>Music</li>
+<li>Venue</li>
+<li>Tour</li>
+<li>Photos</li>
+<li>AboutUS</li>
+<li>Newsletter</li> 
 </ul>
-<div>
-  <p class = "paragraph5">Welcome to the official page of The MILLIONAIRE Tour website. Visit for the archived<br>
-  journal posts, past events, concert photos,venue, as well as all their music, singles and albums.<br>
-  enjoy the tour and the songs of One and only YOYO HONEY SINGH rediscovering their journey,<br>
-  right from the very beginning.Keep an eye out for hidden surprises!<br>
-  
-</p>
 </div>
+<div class="typewriter-container">
+  <ul>
+      <h1 class="paragraph typewriter" id="text1"></h1>
+      <h2 class="paragraph2 typewriter" id="text2"></h2>
+      <h3 class="paragraph3 typewriter" id="text3"></h3>
+  </ul>
+</div>
+
+<div>
+  <p class="paragraph5 typewriter" id="text4"></p>
+</div>
+
 <ul>
 <div>
 <a href= "#" class = "lets-go-btn">LET'S GO</a>
@@ -71,11 +66,30 @@
   <pre> DESi MUSIC                                                         &copy;2025, MUSIC ENTERTAINMENT, INDIA LTD.                                              PRIVACY AND COOKIE POLICY</pre>
   </div>
 </footer>
-
 <script>
-    function toggleMenu() {
-        document.getElementById("menu").classList.toggle("active");
-    }
+function typeWriterEffect(elementId, text, speed, callback) {
+  let i = 0;
+  function type() {
+      if (i < text.length) {
+          document.getElementById(elementId).innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+      } else if (callback) {
+          setTimeout(callback, 500);
+      }
+  }
+  type();
+}
+
+window.onload = function () {
+  typeWriterEffect("text1", "Welcome to the", 80, function () {
+      typeWriterEffect("text2", "MILLIONAIRE", 100, function () {
+          typeWriterEffect("text3", "Tour", 100, function () {
+              typeWriterEffect("text4", "Welcome to the official page of The MILLIONAIRE Tour website. Visit for the archived journal posts, past events, concert photos, venues, as well as all their music, singles, and albums. Enjoy the tour and the songs of One and only YOYO HONEY SINGH, rediscovering their journey right from the very beginning. Keep an eye out for hidden surprises!", 30);
+          });
+      });
+  });
+};
 </script>
 </body>
 </html>
