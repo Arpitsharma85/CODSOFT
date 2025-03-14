@@ -11,6 +11,7 @@
       background-image: url(honeyconcert.jpg.jpg);
       background-repeat:no-repeat ;
       background-size: cover;
+      object-fit: cover;
       position: relative;
       background-position: center;
       height: 100vh;
@@ -26,15 +27,16 @@
 <link rel = "stylesheet" href="style.css">
 </head>
 <body>
-<div class="menu-bar">     
-<ul>
-<li>Music</li>
-<li>Venue</li>
-<li>Tour</li>
-<li>Photos</li>
-<li>AboutUS</li>
-<li>Newsletter</li> 
-</ul>
+  <div class="menu-bar">  
+    <div class="hamburger" onclick="toggleMenu()">☰</div>   
+    <ul id="menu">
+        <li>Music</li>
+        <li>Venue</li>
+        <li>Tour</li>
+        <li>Photos</li>
+        <li>About Us</li>
+        <li>Newsletter</li>
+    </ul>
 </div>
   <div>
   <ul>
@@ -69,5 +71,11 @@
   <pre> DESi MUSIC                                                         &copy;2025, MUSIC ENTERTAINMENT, INDIA LTD.                                              PRIVACY AND COOKIE POLICY</pre>
   </div>
 </footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("menu").classList.toggle("active");
+    }
+</script>
 </body>
 </html>
